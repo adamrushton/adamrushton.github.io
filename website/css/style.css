@@ -1,0 +1,100 @@
+* 
+{
+	outline: none;
+}
+
+html, body 
+{
+	font-family: "Open Sans";
+	color: #fff;
+	background-color: #6CADFF;
+}
+
+.header-container 
+{
+	padding-top: 66px;
+	width: 310px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#header 
+{
+	font-weight: bold;
+	font-size: 24px;
+	letter-spacing: 7.7px;
+}
+
+#header img 
+{
+	float: left;
+}
+
+#header div 
+{
+	padding: 14px;
+
+}
+
+.container 
+{
+	padding-top: 240px;
+	width: 780px;
+	margin: 0 auto;
+}
+
+.row 
+{
+	width: inherit;
+}
+
+.col-input 
+{
+	width: 700px;
+	float: left;
+}
+
+.col-button 
+{
+	padding: 0 0 0 8px;
+	width: 62px;
+	height: 59px;
+	float: right;
+}
+
+.input 
+{
+	width: 100%;
+	font-family: "Open Sans";
+	color: #fff;
+	margin-top: 8px;
+	padding: 6px 0;
+	font-size: 24px;
+	background-color: rgba(0,0,0,0);
+	border: 2px solid #fff;
+	border-top: 0;
+	border-right: 0;
+	border-left: 0;
+	box-sizing: border-box;
+}
+
+.input::placeholder 
+{
+	color: #fff;
+}
+
+.button 
+{
+	background-image: url("../assets/Group 3.png");
+	border: none;
+	background-color: rgba(0, 0, 0, 0);
+	width: 56px;
+	height: 59px;
+	position: relative;
+	top: 0;
+}
+
+.button:active 
+{
+	top: 2px;
+}
