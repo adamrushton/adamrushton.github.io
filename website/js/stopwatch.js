@@ -1,4 +1,5 @@
 var timers = [];
+// Timer for tasks
 
 function Stopwatch(elem)
 {
@@ -8,6 +9,7 @@ function Stopwatch(elem)
 	var interval;
 	var isRunning;
 	
+	// Store delta time (time passed), updating time with dt when an instance of this class is running
 	function update() 
 	{
 		var dt = delta();
@@ -19,6 +21,7 @@ function Stopwatch(elem)
 		}
 	}
 	
+	// Calculating time
 	function delta() 
 	{  
     	var now        = Date.now();
@@ -28,16 +31,29 @@ function Stopwatch(elem)
     	return timePassed;
 	}
 	
+	// Format to print the stopwatch
 	function timeFormatter(time) 
 	{
 		time = new Date(time);
 
 		var minutes = time.getMinutes().toString();
 		var seconds = time.getSeconds().toString();
-
-		return minutes + " min " + seconds + " sec";
+		
+		if (minutes >= 1)
+		{
+			return minutes + " min " + seconds + " sec";
+		}
+		else 
+		{
+			return seconds + " sec";	
+		}
 	}
 	
+	// Starts the stopwatch
+	// Detecting user clicks onto archive button and playpause button for each task
+	// Archive button hit -> gets task name and time, calls archivetask passing them as parameters
+	// Archive button hit -> stops the timer and removes the active task
+	// Play/pause button hit -> toggle isRunning. 
 	this.start = function() 
 	{
 		interval = setInterval(update.bind(this), 10);

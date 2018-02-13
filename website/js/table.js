@@ -11,11 +11,13 @@ var tableTD =
 function StartTask(input)
 {	
 	"use strict";
-
+	var minimumCharacters = 3;
+	var maximumCharacters = 25;
+	
 	// Limitating user input, requiring 3 or more characters 
-	if (input.length < 3) 
+	if (input.length < minimumCharacters || input.length > maximumCharacters) 
 	{
-		window.alert("A task name requires 3 or more characters.");
+		window.alert("A task name requires "+minimumCharacters+" to "+maximumCharacters+ " characters.");
 		return;
 	}
 	
@@ -38,29 +40,33 @@ function StartTask(input)
 		for (var activeTasksB = 0; activeTasksB < taskEntries[activeTasksA].length; activeTasksB++)	
 		{		
 			var activeTasksTd = document.createElement("td");
-			
 			switch(activeTasksB)
 			{
 				case tableTD.cellOne:
-					activeTasksTd.id = "taskName" + rowNumber;
+					activeTasksTd.id        = "taskName" + rowNumber;
+					activeTasksTd.className = "taskName";
 					break;
+					
 				case tableTD.cellTwo:
-					activeTasksTd.width = 150;
-					activeTasksTd.align = "center";
-					activeTasksTd.id 	= "timer" + rowNumber;
+					activeTasksTd.width     = 200;
+					activeTasksTd.align     = "center";
+					activeTasksTd.id 	    = "timer" + rowNumber;
+					activeTasksTd.className = "taskTime";
 					break;
+					
 				case tableTD.cellThree:
-					activeTasksTd.width = 111;
+					activeTasksTd.width = 80;
 					activeTasksTd.align = "center";
 					activeTasksTd.id    = "playPauseButton" + rowNumber; 
 					break;
+					
 				case tableTD.cellFour:
-					activeTasksTd.width  = 56;
-					activeTasksTd.align  = "center";
-					activeTasksTd.id     = "archiveButton" + rowNumber; 
+					activeTasksTd.width     = 90;
+					activeTasksTd.align     = "center";
+					activeTasksTd.id        = "archiveButton" + rowNumber; 
+					activeTasksTd.className = "archiveButton";
 					break;
 			}
-			
 			activeTasksTd.appendChild(document.createTextNode(taskEntries[activeTasksA][activeTasksB]));
 			activeTasksTr.appendChild(activeTasksTd);
 		}
@@ -83,16 +89,19 @@ var archivedRowNumber = 0;
 function ArchiveTask(taskName, time)
 {
 	"use strict";
+	var archivedTaskElements = 2;
+	
 	var aTb       = document.getElementById("archiveTasksTable");
 	var aTbBdy    = document.getElementById("archiveTasksTbody");
 	aTb.appendChild(aTbBdy);
+	
 	// Archived tasks display
 	for (var archiveTasksA = 0; archiveTasksA < taskEntries.length; archiveTasksA++)
 	{
 		var archiveTasksTr = document.createElement("tr");
 		
 		archiveTasksTr.id = "row" + archivedRowNumber;
-		for (var archiveTasksB = 0; archiveTasksB < 2; archiveTasksB++)	
+		for (var archiveTasksB = 0; archiveTasksB < archivedTaskElements; archiveTasksB++)	
 		{		
 			var archiveTasksTd = document.createElement("td");
 			archiveTasksTd.id = "archived";
@@ -101,9 +110,10 @@ function ArchiveTask(taskName, time)
 			{
 				case tableTD.cellOne:
 					archiveTasksTd.innerHTML = taskName;
-					archiveTasksTd.width     = 650;
+					archiveTasksTd.width     = 660;
 					archiveTasksTd.id        = "archivedTaskName" + archivedRowNumber;
 					break;
+					
 				case tableTD.cellTwo:
 					archiveTasksTd.innerHTML = time;
 					break;
