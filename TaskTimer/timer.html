@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Task Timer</title>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+		<link rel="stylesheet" type ="text/css" href="css/style2.css"/>
+	</head>
+	
+	<body>
+		<header>
+			<div class="header-container" id="header"> 
+				<img src="assets/Group 2.png" alt="Clock" title="Clock"/>
+				<div>TASK TIMER</div>
+			</div>
+		</header>
+	
+		<div class="container"> 
+			<div class="row">
+				<div class="col-input">
+					<input type="text" id="userTaskInput" class="input" placeholder="Enter task name"/>
+				</div>
+				<div class="col-button">
+					<input type="submit" class="button" id="create" value="" />
+				</div>
+			</div>
+		</div>
+		
+		<div class="container"> 
+			<div id="Tasks">
+				<table id="activeTasksTable">
+					<tbody id="tasksTbody">
+					</tbody>
+				</table>
+
+				<table id="archiveTasksTable">
+				<tbody id="archiveTasksTbody">
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<script src="js/stopwatch.js"></script>
+		<script src="js/table.js">    </script>
+		<script src="js/main.js">     </script>
+	</body>
+</html>
