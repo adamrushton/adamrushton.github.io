@@ -100,6 +100,11 @@ tr
 	border-color: #E7E7E7;
 }
 
+#trSpacing
+{
+	height: 15px;
+	width: inherit;
+}
 .button 
 {
 	background-image: url("../assets/Group 3.png");
@@ -123,9 +128,7 @@ tr
 	width: 818px;
 	color: #D9D9D9;
 	background-color: #F8F8F8; 
-	border-style: solid;
-	border-width: 1px;
-	border-color: #E7E7E7;
+
 	padding-left: 19px;
 }
 
@@ -151,3 +154,12 @@ tr
 	padding-right: 20px;
 }
 
+#tick
+{
+	height: 26px;
+	width: 27px;
+	font-weight: bold;
+	transform: rotate(42deg) scaleX(-1);
+	color: #8EF377;
+	padding-left: 13px;
+}
