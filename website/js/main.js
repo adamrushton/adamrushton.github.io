@@ -1,3 +1,4 @@
+// Get first task from index.html user input
 window.onload = function() 
 {
 	"use strict";
@@ -7,8 +8,10 @@ window.onload = function()
 	}
 };
 
+// Creates user inputs task
 document.getElementById("create").addEventListener("click", function() 
 {
 	"use strict";
 	StartTask(document.getElementById("userTaskInput").value);
+	localStorage.removeItem("firstTaskName");
 });

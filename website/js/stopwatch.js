@@ -1,5 +1,5 @@
-var timers = [];
 // Timer for tasks
+var timers = [];
 
 function Stopwatch(elem)
 {
@@ -17,7 +17,7 @@ function Stopwatch(elem)
 		if (isRunning) 
 		{
 			time += dt;
-			document.getElementById("timer" + elem).innerHTML = timeFormatter(time);
+			document.getElementById("timer" + elem).innerHTML = timeOutput(time);
 		}
 	}
 	
@@ -32,7 +32,7 @@ function Stopwatch(elem)
 	}
 	
 	// Format to print the stopwatch
-	function timeFormatter(time) 
+	function timeOutput(time) 
 	{
 		time = new Date(time);
 
@@ -56,42 +56,37 @@ function Stopwatch(elem)
 	// Play/pause button hit -> toggle isRunning. 
 	this.start = function() 
 	{
-		interval = setInterval(update.bind(this), 10);
-    	offset = Date.now();
+		interval  = setInterval(update.bind(this), 10);
+    	offset    = Date.now();
 		isRunning = true;
 		
-		document.getElementById("archiveButton"+ elem).addEventListener("click", function()
+		document.getElementById("archiveImage" + elem).addEventListener("click", function()
 		{
-			var taskName = document.getElementById("taskName" +elem).innerHTML;
-			var time     = document.getElementById("timer"    +elem).innerHTML;
-			
+			var taskName = document.getElementById("taskName" + elem).innerHTML;
+			var time     = document.getElementById("timer"    + elem).innerHTML;
+		
 			ArchiveTask(taskName, time);
+
 			isRunning = false;
-			var row   = document.getElementById("row"+elem);
+			var row   = document.getElementById("row" + elem);
 			row.parentNode.removeChild(row);
 		});
 		
-		document.getElementById("playPauseButton" + elem).addEventListener("click", function() 
-		{
-			isRunning = !isRunning;
-			
-			if(isRunning) 
+		document.getElementById("playPauseButton" + elem).addEventListener("click", function()
+		{															 
+			document.getElementById("playPauseImage" + elem).addEventListener("click", function()
 			{
-				document.getElementById("playPauseButton" + elem).innerHTML = "<img class='tbl-btn' src='./assets/Group 5.png'/>";
-			}
-			else
-			{
-				document.getElementById("playPauseButton" + elem).innerHTML = "<img class='tbl-btn' src='./assets/Group 3.png'/>";
-			}
-		});
-	};
+				isRunning = !isRunning;
 
-    this.stop = function() 
-	{
-    	clearInterval(interval);
-    	interval       = null;
-    	this.isRunning = false;
-    };
-	
-	this.isRunning = false;
+				if(isRunning) 
+				{
+					document.getElementById("playPauseButton" + elem).innerHTML = "<img id='playPauseImage" + elem + "' src='./assets/Group 5.png'/>";
+				}
+				else
+				{
+					document.getElementById("playPauseButton" + elem).innerHTML = "<img id='playPauseImage" + elem + "' src='./assets/Group 3.png'/>";
+				}
+			});
+		});
+	};	
 }
